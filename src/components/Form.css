@@ -1,0 +1,40 @@
+.conteiner{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-flow: column nowrap;
+    background-color: rgb(215, 215, 208);
+    width: 800px;
+    height: 100vh;
+    padding: 30px;
+}
+#inputZone{
+    background-color: #f44336;
+    padding: 30px 40px;
+    color: white;
+    text-align: center;
+   max-width: 500px;
+}
+input{
+    font-size: 23px;
+}
+button{
+    background-color: aliceblue;
+    font-size: 22px;
+    cursor: pointer;
+}
+button:hover{
+    background-color: darkgrey;
+}
+
+#wishDiv{
+    display: flex;
+}
+li{
+    font-size: 30px;
+    list-style: none;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
+}
+li:hover{
+    color: darkslategray;
+}

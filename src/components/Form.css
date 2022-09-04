@@ -24,17 +24,24 @@ button{
     cursor: pointer;
 }
 button:hover{
-    background-color: darkgrey;
+    background-color:  #f44336;
 }
 
 #wishDiv{
     display: flex;
-}
-li{
+    justify-content: space-between;
     font-size: 30px;
-    list-style: none;
-    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
+    color: aliceblue;
+    background-color:  gray;
+    margin: 5px;
+
+    padding: 10px;
 }
-li:hover{
-    color: darkslategray;
+#wishDiv:hover{
+    background-color: rgb(156, 155, 155);
+}
+.filter-div{
+    font-size: large;
+    cursor: pointer;
+    border: solid grey 1px;
 }

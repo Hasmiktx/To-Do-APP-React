@@ -1,6 +1,24 @@
 import React from "react";
 import "./Form.css";
-export default function inputZone(props) {
+import { v4 as uuidv4 } from "uuid";
+import { useDispatch, useSelector } from "react-redux";
+import { typing, inputValueFunc } from "../ReduxTool/Input";
+import { add } from "../ReduxTool/List";
+
+function InputZone() {
+  const inputValue = useSelector(inputValueFunc);
+
+  const dispatch = useDispatch();
+
+  const addList = () => {
+    if (!inputValue) {
+      alert("Please Type text");
+    } else {
+      dispatch(add({ id: uuidv4(), name: inputValue, done: false }));
+      dispatch(typing({ name: "" }));
+    }
+  };
+
   return (
     <>
       <div>
@@ -8,13 +26,14 @@ export default function inputZone(props) {
       </div>
       <div id="inputZone">
         <input
-          value={props.state.input}
-          onChange={props.onChange}
+          value={inputValue}
+          onChange={(e) => dispatch(typing({ name: e.target.value }))}
           type="search"
           placeholder="Type your ToDo..."
         />
-        <button onClick={props.addList}>Add</button>
+        <button onClick={() => addList()}>Add</button>
       </div>
     </>
   );
 }
+export default InputZone;

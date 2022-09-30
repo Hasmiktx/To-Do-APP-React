@@ -1,7 +1,9 @@
 import React from "react";
+import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { choose } from "../ReduxTool/FilterReducer";
 export default function Filter() {
+  //const [active, setActive] = useState("All");
   const dispatch = useDispatch();
   return (
     <div
@@ -12,15 +14,27 @@ export default function Filter() {
         width: "250px",
       }}
     >
-      <div className="filter-div" onClick={() => dispatch(choose("All"))}>
+      <button className="filter-div" onClick={() => dispatch(choose("All"))}>
         All
-      </div>
-      <div className="filter-div" onClick={() => dispatch(choose("Checked"))}>
+      </button>
+      <button
+        className="filter-div"
+        onClick={() => {
+          //setActive("Checked");
+          dispatch(choose("Checked"));
+        }}
+      >
         Checked
-      </div>
-      <div className="filter-div" onClick={() => dispatch(choose("Unchecked"))}>
+      </button>
+      <button
+        className="filter-div"
+        onClick={() => {
+          //setActive("Unchecked");
+          dispatch(choose("Unchecked"));
+        }}
+      >
         Unchecked
-      </div>
+      </button>
     </div>
   );
 }

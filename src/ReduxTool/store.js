@@ -1,11 +1,10 @@
 import { configureStore } from "@reduxjs/toolkit";
-import counterReducer from "./Counter";
-import inputReducer from "./Input";
-import listReducer from "./List";
+import inputReducer from "./InputReducer";
+import listReducer from "./ListReducer";
 import filterReducer from "./FilterReducer";
+
 const store = configureStore({
   reducer: {
-    counter: counterReducer,
     inputState: inputReducer,
     todo: listReducer,
     filter: filterReducer,

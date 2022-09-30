@@ -2,8 +2,8 @@ import React from "react";
 import "./Form.css";
 import { v4 as uuidv4 } from "uuid";
 import { useDispatch, useSelector } from "react-redux";
-import { typing, inputValueFunc } from "../ReduxTool/Input";
-import { add } from "../ReduxTool/List";
+import { typing, inputValueFunc } from "../ReduxTool/InputReducer";
+import { add } from "../ReduxTool/ListReducer";
 
 function InputZone() {
   const inputValue = useSelector(inputValueFunc);

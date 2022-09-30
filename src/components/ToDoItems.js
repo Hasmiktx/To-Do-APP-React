@@ -1,13 +1,13 @@
 import React from "react";
 import Filter from "./Filter";
 import "./Form.css";
-import ToDoItem from "./ToDoItem";
+
 import { useDispatch, useSelector } from "react-redux";
-import { delList, changeCheck } from "../ReduxTool/List";
+import { delList, changeCheck } from "../ReduxTool/ListReducer";
 
 export default function ToDoItems() {
-  const li = useSelector((state) => state.todo);
-  console.log(li, "st.todo");
+  const li = useSelector((state) => state.todo.td);
+
   const filter = useSelector((state) => state.filter.filter);
   const dispatch = useDispatch();
 
@@ -29,7 +29,7 @@ export default function ToDoItems() {
             checked={wish.done}
             onChange={() => dispatch(changeCheck(wish))}
           />
-          <ToDoItem wishName={wish.name} />
+          <div>{wish.name}</div>
 
           <button onClick={() => dispatch(delList(wish))}>X</button>
         </div>

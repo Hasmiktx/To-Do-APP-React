@@ -3,13 +3,12 @@ import "./Form.css";
 
 import InputZone from "./InputZone";
 import ToDoItems from "./ToDoItems";
-import { useDispatch, useSelector } from "react-redux";
-import { increment, decrement } from "../ReduxTool/Counter";
+import { useSelector } from "react-redux";
 
 export default function Form() {
-  const count = useSelector((state) => state.counter.value);
+  const count = useSelector((state) => state.todo.td);
 
-  const dispatch = useDispatch();
+  //const checkedCount = count.filter((item) => item.done === true);
 
   // document.addEventListener("keypress", function (e) {
   //   if (e.key === "Enter") {
@@ -20,17 +19,12 @@ export default function Form() {
     <div className="conteiner">
       <InputZone />
       <ToDoItems />
+      <div>
+        <h2>All-{count.length}</h2>
 
-      <button
-        onClick={() => {
-          dispatch(decrement());
-        }}
-      >
-        -
-      </button>
-      <h4>{count}</h4>
-
-      <button onClick={() => dispatch(increment())}>+</button>
+        <h2>Checked-{count.filter((item) => item.done === true).length}</h2>
+        <h2>Unchecked-{count.filter((item) => item.done !== true).length}</h2>
+      </div>
     </div>
   );
 }

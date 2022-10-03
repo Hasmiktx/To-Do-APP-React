@@ -22,11 +22,16 @@ function InputZone() {
   return (
     <>
       <div>
-        <h2>My To Do List</h2>
+        <h2 style={{ fontSize: "40px" }}>My To Do List</h2>
       </div>
       <div id="inputZone">
         <input
           value={inputValue}
+          onKeyDown={(e) => {
+            if (e.key === "Enter") {
+              addList();
+            }
+          }}
           onChange={(e) => dispatch(typing({ name: e.target.value }))}
           type="search"
           placeholder="Type your ToDo..."
